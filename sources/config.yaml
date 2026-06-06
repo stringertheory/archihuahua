@@ -1,9 +1,9 @@
     sources:
-      - Archivo.glyphs
-      - Archivo-Italic.glyphs
+      - Archihuahua.glyphs
+      - Archihuahua-Italic.glyphs
     axisOrder:
       - wdth
       - wght
     outputDir: "../fonts"
-    familyName: Archivo
+    familyName: Archihuahua
     

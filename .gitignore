@@ -1,3 +1,12 @@
 .DS_Store
 *(Autosaved)*
 env
+.venv
+build
+__pycache__
+
+# gftools builder artifacts
+instance_ufos
+master_ufo
+*.ninja
+.ninja_log

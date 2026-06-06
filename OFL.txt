@@ -1,3 +1,4 @@
+Copyright 2026 Michael Stringer (https://github.com/stringertheory/archihuahua), a derivative of Archivo.
 Copyright 2020 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.

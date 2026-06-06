@@ -7,3 +7,4 @@
 
 Omnibus-Type
 Héctor Gatti <omnibus.type@gmail.com>
+Mike Stringer <mike.stringer.internet@gmail.com> (Mike messed up the l)
