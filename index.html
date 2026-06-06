@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archihuahua — type tester</title>
+<style>
+  /* The full variable fonts, loaded straight from the repo (served by Pages).
+     Brackets in the filename are percent-encoded. */
+  @font-face {
+    font-family: "Archihuahua";
+    src: url("fonts/variable/Archihuahua%5Bwdth%2Cwght%5D.ttf") format("truetype-variations");
+    font-weight: 100 900;
+    font-stretch: 62% 125%;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Archihuahua";
+    src: url("fonts/variable/Archihuahua-Italic%5Bwdth%2Cwght%5D.ttf") format("truetype-variations");
+    font-weight: 100 900;
+    font-stretch: 62% 125%;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  :root { --bg:#fff; --fg:#111; --ui:#f4f4f5; --line:#e2e2e4; --muted:#777; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--fg); background: var(--bg);
+  }
+  header {
+    display:flex; align-items:baseline; gap:.75rem; flex-wrap:wrap;
+    padding: 14px 20px; border-bottom: 1px solid var(--line);
+  }
+  header h1 { font-family:"Archihuahua",system-ui; font-weight:800; font-size:22px; margin:0; }
+  header .tag { color: var(--muted); }
+  header a { color: var(--muted); margin-left:auto; text-decoration:none; }
+  header a:hover { color: var(--fg); }
+
+  .controls {
+    display:flex; flex-wrap:wrap; gap: 18px 26px; align-items:center;
+    padding: 12px 20px; background: var(--ui); border-bottom:1px solid var(--line);
+    position: sticky; top: 0; z-index: 2;
+  }
+  .ctrl { display:flex; flex-direction:column; gap:4px; min-width: 150px; }
+  .ctrl label { font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+  .ctrl label b { color: var(--fg); font-variant-numeric: tabular-nums; }
+  .ctrl input[type=range] { width: 100%; accent-color:#111; }
+  .toggles { display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+  .toggles label { display:flex; gap:6px; align-items:center; text-transform:none; letter-spacing:0;
+                   font-size:13px; color:var(--fg); cursor:pointer; }
+
+  #stage {
+    padding: 6vh 5vw;
+    font-family: "Archihuahua", system-ui;
+    color: var(--fg);
+    outline: none;
+    overflow-wrap: anywhere;
+  }
+  #stage:empty::before { content: "Type here…"; color: var(--muted); }
+
+  .samples { padding: 4px 20px 16px; display:flex; gap:8px; flex-wrap:wrap; }
+  .samples button {
+    font: inherit; font-size:12px; color:var(--fg); background:var(--ui);
+    border:1px solid var(--line); border-radius:999px; padding:4px 12px; cursor:pointer;
+  }
+  .samples button:hover { background:#ebebed; }
+  .note { padding: 0 20px 28px; color: var(--muted); max-width: 60ch; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Archihuahua</h1>
+    <span class="tag">variable type tester — the lowercase <i>l</i> has a little tail 🐾</span>
+    <a href="https://github.com/stringertheory/archihuahua" target="_blank" rel="noopener">github ↗</a>
+  </header>
+
+  <div class="controls">
+    <div class="ctrl">
+      <label>size <b><span id="sizeV">96</span>px</b></label>
+      <input id="size" type="range" min="10" max="300" value="96">
+    </div>
+    <div class="ctrl">
+      <label>weight (wght) <b id="wghtV">700</b></label>
+      <input id="wght" type="range" min="100" max="900" step="1" value="700">
+    </div>
+    <div class="ctrl">
+      <label>width (wdth) <b id="wdthV">100</b></label>
+      <input id="wdth" type="range" min="62" max="125" step="1" value="100">
+    </div>
+    <div class="ctrl">
+      <label>line height <b id="lhV">1.1</b></label>
+      <input id="lh" type="range" min="0.8" max="2" step="0.05" value="1.1">
+    </div>
+    <div class="ctrl">
+      <label>letter spacing <b id="lsV">0</b></label>
+      <input id="ls" type="range" min="-5" max="20" step="0.5" value="0">
+    </div>
+    <div class="ctrl toggles">
+      <label><input id="italic" type="checkbox"> italic</label>
+      <label><input id="tnum" type="checkbox"> tabular figures</label>
+      <label><input id="dark" type="checkbox"> dark</label>
+    </div>
+  </div>
+
+  <div class="samples">
+    <button data-t="Hi, I'm Al, not AI.">Al vs AI</button>
+    <button data-t="The quick brown fox jumps over the lazy dog.">pangram</button>
+    <button data-t="Archihuahua">name</button>
+    <button data-t="ABCDEFGHIJKLM NOPQRSTUVWXYZ abcdefghijklm nopqrstuvwxyz">alphabet</button>
+    <button data-t="0123456789  $12,345.67  €1.000,50  3/4">figures</button>
+    <button data-t="Hamburglevons fjord — illegally chilled lull.">l’s</button>
+  </div>
+
+  <div id="stage" contenteditable spellcheck="false">Hi, I'm Al, not AI.</div>
+
+  <p class="note">
+    Loads the full <code>wght</code>+<code>wdth</code> variable fonts directly from the
+    repository. Edit the text above; drag the sliders to roam the design space.
+  </p>
+
+<script>
+  const $ = id => document.getElementById(id);
+  const stage = $("stage");
+
+  function apply() {
+    stage.style.fontSize = $("size").value + "px";
+    stage.style.fontWeight = $("wght").value;
+    stage.style.fontStretch = $("wdth").value + "%";
+    stage.style.lineHeight = $("lh").value;
+    stage.style.letterSpacing = $("ls").value + "px";
+    stage.style.fontStyle = $("italic").checked ? "italic" : "normal";
+    stage.style.fontFeatureSettings = $("tnum").checked ? '"tnum" 1' : "normal";
+    document.documentElement.style.setProperty("--bg", $("dark").checked ? "#111" : "#fff");
+    document.documentElement.style.setProperty("--fg", $("dark").checked ? "#f5f5f5" : "#111");
+    $("sizeV").textContent = $("size").value;
+    $("wghtV").textContent = $("wght").value;
+    $("wdthV").textContent = $("wdth").value;
+    $("lhV").textContent = $("lh").value;
+    $("lsV").textContent = $("ls").value;
+  }
+
+  document.querySelectorAll(".controls input").forEach(el =>
+    el.addEventListener("input", apply));
+  document.querySelectorAll(".samples button").forEach(b =>
+    b.addEventListener("click", () => { stage.textContent = b.dataset.t; }));
+
+  apply();
+</script>
+</body>
+</html>
