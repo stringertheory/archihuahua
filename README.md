@@ -1,10 +1,12 @@
-![AI versus Al — the tailed l tells them apart.](./Archihuahua-0.png "better for people named Al")
-
 # Archihuahua
 
 *SIL Open Font License, 1.1*
 
 Archihuahua is a fork of [Archivo](https://github.com/Omnibus-Type/Archivo) by Omnibus-Type, with a little foot added to the lowercase **l** (the *l* has its dogs out 🐾).
+
+<p align="center">
+  <img src="./Archihuahua-0.png" width="420" alt="AI versus Al — the tailed l tells them apart" title="better for people named Al">
+</p>
 
 ![Archihuahua weights, Thin to Black.](./Archihuahua-1.png "Archihuahua — weights")
 ![Archihuahua widths, ExtraCondensed to Expanded.](./Archihuahua-2.png "Archihuahua — widths")

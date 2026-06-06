@@ -200,15 +200,17 @@ def specimen0():
     group = ai.width + gap + al.width
     sent, _ = tight("Hi, I'm Al, not AI.", "-Medium", target_w=CONTENT)
 
-    top, lab_gap, mid_gap, bottom = 96, 16, 64, 78
-    la, lb = tracked("AI · artificial intelligence"), tracked("Al · Alexander")
+    # this sheet is shown small in the README (≈half width), so its small text
+    # is sized up to stay legible there.
+    top, lab_gap, mid_gap, bottom = 96, 18, 64, 80
+    la, lb = tracked("artificial intelligence", 22), tracked("Alexander", 22)
     hero_h = max(ai.height, al.height)
     H = top + hero_h + lab_gap + max(la.height, lb.height) + mid_gap + sent.height + bottom
 
     c = Image.new("L", (W, H), BG)
     d = ImageDraw.Draw(c)
-    ht = tracked(title, 13)
-    c.paste(ht, ((W - ht.width) // 2, 26)); d.line(((ML, 54), (W - ML, 54)), fill=RULE)
+    ht = tracked(title, 16)
+    c.paste(ht, ((W - ht.width) // 2, 26)); d.line(((ML, 56), (W - ML, 56)), fill=RULE)
 
     gx = (W - group) // 2
     base = top + hero_h
@@ -220,7 +222,7 @@ def specimen0():
 
     sy = base + lab_gap + max(la.height, lb.height) + mid_gap
     c.paste(sent, (ML, sy))
-    ft = tracked("in archihuahua the tailed l keeps Al clear of the AI", 12)
+    ft = tracked("in archihuahua the tailed l keeps Al clear of the AI", 18)
     c.paste(ft, ((W - ft.width) // 2, H - 42)); d.line(((ML, H - 54), (W - ML, H - 54)), fill=RULE)
     return c
 
