@@ -10,3 +10,6 @@ instance_ufos
 master_ufo
 *.ninja
 .ninja_log
+
+# marimo cache
+__marimo__

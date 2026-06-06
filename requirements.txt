@@ -1,1 +1,13 @@
-gftools
+# Building the fonts: gftools drives the whole build (sources/config.yaml) and
+# pulls in fontmake/fonttools; ttfautohint-py provides the autohinter.
+gftools==0.9.996
+ttfautohint-py==0.6.0
+
+# scripts/ tooling (glyph editing, live explorers, subsetting, specimens)
+glyphsLib==6.13.1
+fonttools==4.63.0
+brotli==1.2.0
+Pillow==12.2.0
+matplotlib==3.10.9
+streamlit==1.58.0
+marimo==0.23.9

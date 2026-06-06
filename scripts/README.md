@@ -17,8 +17,11 @@ python3 -m venv .venv
 
 ## Interactive explorer (recommended for tuning)
 
+Same explorer in two flavours — pick whichever you have installed:
+
 ```sh
-.venv/bin/streamlit run scripts/tail_explorer.py
+.venv/bin/streamlit run scripts/tail_explorer.py          # Streamlit
+.venv/bin/marimo edit scripts/tail_explorer_marimo.py     # marimo (or: marimo run …)
 ```
 
 Opens a browser page with live sliders for `overhang`, `terminal`, `dip`, and
@@ -29,6 +32,7 @@ exact `add_l_tail.py` command to bake it in. Files involved:
 - `l_tail.py` — the tail geometry (shared, single source of truth)
 - `preview.py` — draws the live `l` + the surrounding letters from the font
 - `tail_explorer.py` — the Streamlit UI
+- `tail_explorer_marimo.py` — the same UI as a marimo notebook
 
 ## Baking it into the source
 
